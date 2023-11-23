@@ -7,9 +7,24 @@
   </head>
   <body>
     <!-- Escribe tu codigo html aqui -->
-
+    <div id="elementoPadre" style="padding: 10px; background-color:red">
+      <div id="elementoHijo" style="background-color: white;">Haz click</div>
+    </div>
     <script>
       // Escribe tu codigo javascript aqui
+      /*Al activar al hijo como esta contenido dentro del padre
+      igual seguidamente el evento del padre por eso en el hijo
+      se debe detener la propagacion al padre*/
+      const elementoHijo = document.getElementById('elementoHijo')
+      elementoHijo.addEventListener('click', function(evento){
+        evento.stopPropagation()
+        alert('Activacion del evento hijo')
+      })
+
+      const elementoPadre = document.getElementById('elementoPadre')
+      elementoPadre.addEventListener('click', ()=>{
+        alert('Activacion del evento padre')
+      })
     </script>
   </body>
 </html>
