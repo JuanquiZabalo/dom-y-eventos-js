@@ -7,16 +7,36 @@
   </head>
   <body>
     <!-- Escribe tu codigo html aqui -->
-    <div id="contenedor">Contenedor padre</div>
+    
+    <input type="text" id="miInput">
     <button id="miBoton">Agregar elemento</button>
+    <h2>Lista de compras</h2>
+    <ul id="miLista"></ul>
 
 
     <script>
       // Escribe tu codigo javascript aqui
-      const nuevoElemento = document.createElement('div')
-      nuevoElemento.textContent = 'Elemento hijo'
-      const contenedorPadre = document.getElementById('contenedor')
-      contenedorPadre.appendChild(nuevoElemento)
+      const elementoBoton = document.getElementById('miBoton')
+      const listaElemento = document.getElementById('miLista')
+      console.log(listaElemento)
+      elementoBoton.addEventListener('click', function(){
+        const liElemento = document.createElement('li') // crearme un li
+        const botonElemento = document.createElement('button') //crearme boton
+
+        liElemento.textContent = document.getElementById('miInput').value
+
+        botonElemento.textContent = 'Eliminar'
+        botonElemento.setAttribute('id','btnEliminar')
+
+        botonElemento.addEventListener('click', function(evento){
+          const container = evento.target.parentElement
+          listaElemento.removeChild(container)
+        })
+
+        liElemento.appendChild(botonElemento) // agregar boton dentro de LI
+        listaElemento.appendChild(liElemento) // agregar li dentro de la lista
+        document.getElementById('miInput').value = ''
+      })
     </script>
   </body>
 </html>
