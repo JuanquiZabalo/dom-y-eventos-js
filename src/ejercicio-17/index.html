@@ -7,9 +7,14 @@
   </head>
   <body>
     <!-- Escribe tu codigo html aqui -->
-
+    <img src="/introduccion_html/src/assets/blockmaker-logo.png" alt="Imagen" id="miImagen">
     <script>
       // Escribe tu codigo javascript aqui
+      const imagen = document.getElementById('miImagen')
+
+      imagen.addEventListener('load', function(){
+        alert('La imagen se ha cargado correctamente')
+      })
     </script>
   </body>
 </html>
