@@ -7,9 +7,30 @@
   </head>
   <body>
     <!-- Escribe tu codigo html aqui -->
-
+    <ul id="miLista" style="background-color: aquamarine; padding: 10px">
+      <li style="background-color: antiquewhite; margin: 10px;">Elemento 1</li>
+      <li style="background-color: antiquewhite; margin: 10px;">Elemento 2</li>
+      <li style="background-color: antiquewhite; margin: 10px;">Elemento 3</li>
+    </ul>
     <script>
       // Escribe tu codigo javascript aqui
+      /*El argumento evento dentro del callback function(evento) se utiliza
+      para poder acceder a las atributos del elemento cuando se usa dentro
+      de un eventListener o funcion controladora de eventos*/
+      const elementoLista = document.getElementById('miLista')
+      elementoLista.addEventListener('click', function(evento){
+        const li = evento.target.tagName // acceso al tipo de etiqueta LI
+        const textLi = evento.target.textContent // acceso al contenido de texto
+        console.log(li)
+        if(li ==='LI'){
+          console.log(textLi)
+          alert(textLi)
+        }
+        else{
+          alert('clickea sobre los elementos')
+        }
+
+      })
     </script>
   </body>
 </html>
