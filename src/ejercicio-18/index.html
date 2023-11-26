@@ -7,9 +7,23 @@
   </head>
   <body>
     <!-- Escribe tu codigo html aqui -->
-
+    <button id="miBoton">Disparo evento</button>
     <script>
       // Escribe tu codigo javascript aqui
+      const elementoBoton = document.getElementById('miBoton')
+
+      elementoBoton.addEventListener('click', function(){
+        crearEvento()
+      })
+
+      function crearEvento(){
+        const evento = new Event('miEvento')
+        elementoBoton.dispatchEvent(evento)
+      }
+
+      elementoBoton.addEventListener('miEvento', ()=>{
+        alert('Evento disparado')
+      })
     </script>
   </body>
 </html>
