@@ -7,9 +7,26 @@
   </head>
   <body>
     <!-- Escribe tu codigo html aqui -->
-
+    <button id="miBoton">Iniciar timer</button>
     <script>
       // Escribe tu codigo javascript aqui
+      const elementoBoton = document.getElementById('miBoton')
+    
+      elementoBoton.addEventListener('click', function(){
+        iniciarTemporizacion()
+      })
+
+      function iniciarTemporizacion(){
+        const eventoPersonalizado = new Event('miEvento')
+        setTimeout(function(){
+          elementoBoton.dispatchEvent(eventoPersonalizado)
+        }, 3000) // 3 segundos para disparar el evento personalizado
+      }
+
+      // Controlador de evento personalizado una vez disparado
+      elementoBoton.addEventListener('miEvento', ()=>{
+        alert('Evento personalizado disparado')
+      })
     </script>
   </body>
 </html>
