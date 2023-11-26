@@ -10,10 +10,13 @@
     <div id="elementoPadre" style="padding: 10px; background-color:red">
       <div id="elementoHijo" style="background-color: white;">Haz click</div>
     </div>
+    <p onclick="this.innerHTML= 'OK'">Evento click con atributo en linea</p>
+    <p onclick="cambiaTexto(this)">Evento click tratado con funcion en linea</p>
+    <p id="miParrafo">Evento click con controlador de evento en DOM</p>
     <script>
       // Escribe tu codigo javascript aqui
       /*Al activar al hijo como esta contenido dentro del padre
-      igual seguidamente el evento del padre por eso en el hijo
+      el evento del padre se activa igualmente, por eso en el hijo
       se debe detener la propagacion al padre*/
       const elementoHijo = document.getElementById('elementoHijo')
       elementoHijo.addEventListener('click', function(evento){
@@ -25,6 +28,17 @@
       elementoPadre.addEventListener('click', ()=>{
         alert('Activacion del evento padre')
       })
+
+      function cambiaTexto(id){
+        id.textContent = 'Ok cambiaste de texto'
+      }
+
+      const elementoParrafo = document.getElementById('miParrafo')
+      elementoParrafo.addEventListener('click', (evento)=>{
+        console.log('Parrafo inicial:', evento.target.textContent)
+        evento.target.textContent = 'Cambio de parrafo con controlador de evento'
+      })
+
     </script>
   </body>
 </html>
